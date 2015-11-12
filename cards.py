@@ -19,10 +19,22 @@ class Monster(Card):
     if self.health < 1:
       self.Die()
     
+  def summoned(self):
+    if self.ability not == "Haste":
+      self.sick = True
+    
+  def getLoc(self):
+    loc = ""
+    for p in [player1, player2]
+      for i in [field, hand, deck]:
+        if self in p.i:
+          loc = p.i
+      
+    return loc
+    
   def Die(self):
-    if self in player1.field:
-      player1.grave += self
-      del player1.field(self)
+    currentPlayer.grave += self
+    del currentPlayer.field(self)
   
   def Hit(self, target, fast):
     target.health -= self.power
@@ -30,12 +42,15 @@ class Monster(Card):
       target.HealthCheck()
   
   def Attack(self, target):
-    if self.ability == 1 and target.ability not == 1:
+    if self.sick = True:
+      return self , " has summoning sickness!."
+    
+    if self.ability == "First Strike" and target.ability not == "First Strike":
       self.hit(target, True)
       target.hit(self)
       self.HealthCheck()
       
-    elif self.ability == 2 and target.ability not == 2:
+    elif self.ability == "Double Strike" and target.ability not == "Double Strike":
       self.hit(target, True)
       self.hit(target, False)
       target.hit(self, False)
