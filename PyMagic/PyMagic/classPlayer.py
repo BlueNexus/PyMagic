@@ -1,4 +1,7 @@
-﻿class player(object):
+﻿import classCards
+import random
+
+class player(object):
     hand = []
     deck = []
     field = []
@@ -12,7 +15,11 @@
         for i in range(1, 8):
             self.draw()
     
-  
+    def initDeck(self):
+        for i in range(1, 61):
+            self.deck.append(classCards.allCards[random.randrange(len(classCards.allCards))])
+                
+
     def draw(self):
         self.hand.append(self.deck[(len(self.deck) - 1)])
         del self.deck[len(self.deck) - 1]

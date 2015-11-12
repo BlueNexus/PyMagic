@@ -30,7 +30,7 @@
     <Folder Include="Cards\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Cards\cardReadme" />
+    <Content Include="Cards\cardReadme.md" />
     <Content Include="Cards\monsterList.csv" />
   </ItemGroup>
   <PropertyGroup>

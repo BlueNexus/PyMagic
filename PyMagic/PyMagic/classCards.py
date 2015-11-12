@@ -1,5 +1,5 @@
 ﻿import csv
-
+import PyMagic
 
 class Card(object):
     def __init__(self, name, cost):
@@ -37,38 +37,48 @@ class Monster(Card):
     
     def Die(self):
         currentPlayer.grave += self
-        currentPlayer.field.pop(self)
+        del currentPlayer.field[self]
+        print(self.name + " has been destroyed!")
   
     def Hit(self, target, fast):
         target.health -= self.power
+        print(self.name + " has hit " + target.name + " for " + str(self.power) + " damage!")
         if fast == True:
             target.HealthCheck()
   
     def Attack(self, target):
         if self.sick == True:
-            return self , " has summoning sickness!."
+            print(self , " has summoning sickness!.")
+            return
     
         if self.ability == "First Strike" and target.ability != "First Strike":
-            self.hit(target, True)
-            target.hit(self)
+            self.Hit(target, True)
+            target.Hit(self, False)
             self.HealthCheck()
       
         elif self.ability == "Double Strike" and target.ability != "Double Strike":
-            self.hit(target, True)
-            self.hit(target, False)
-            target.hit(self, False)
+            self.Hit(target, True)
+            self.Hit(target, False)
+            target.Hit(self, False)
             target.HealthCheck()
             self.HealthCheck()
       
+        elif self.ability == "Leech":
+            self.Hit(target, False)
+            self.health += self.power
+            target.Hit(self, False)
+            target.HealthCheck()
+            self.HealthCheck()
+
         else:
-            self.hit(target, False)
-            target.hit(self, False)
+            self.Hit(target, False)
+            target.Hit(self, False)
             target.HealthCheck()
             self.HealthCheck()
 
 
 allCards = []
-with open('monsterList.csv', 'rt') as csvfile:
+with open('Cards\monsterList.csv', 'rt') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
     for row in spamreader:
         cache = 0
