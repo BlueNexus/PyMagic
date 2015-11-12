@@ -27,9 +27,11 @@
     <Compile Include="PyMagic.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="monsterList.csv">
-      <Publish>True</Publish>
-    </Content>
+    <Folder Include="Cards\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cards\cardReadme" />
+    <Content Include="Cards\monsterList.csv" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
