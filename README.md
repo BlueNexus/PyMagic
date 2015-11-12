@@ -11,6 +11,7 @@ file. Monsters follow this format:
 So an example monster would be 
 
 "Black_Boa", 2, 2, 1, "First Strike", 1
+
 following the format:
     Name     C  P  D     Ability      I
 
