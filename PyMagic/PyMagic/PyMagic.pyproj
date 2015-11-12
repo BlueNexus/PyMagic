@@ -22,9 +22,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="cards.py" />
-    <Compile Include="player.py" />
+    <Compile Include="classCards.py" />
+    <Compile Include="classPlayer.py" />
     <Compile Include="PyMagic.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="monsterList.csv">
+      <Publish>True</Publish>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
