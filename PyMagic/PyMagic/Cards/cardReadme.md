@@ -24,5 +24,7 @@ These will be located on the wiki at some point, but i'll list them here for now
 7. "Ranged" - Can attack without retaliation
 8. "Cleave" - Deals damage to all enemy creatures
 9. "Haste" - Immune to summoning sickness
-
+10. "Assassin" - Any amount of damage this creature deals to another creature is lethal.
+11. "Sentinel" - This creature will automatically block, regardless of whether or not it is tapped.
+12. "Beserker" - This creature gains +1/+1 when attacking, and -1/-1 when defending.
 More will be added with time.
