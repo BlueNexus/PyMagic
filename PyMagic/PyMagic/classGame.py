@@ -22,7 +22,8 @@ class Game(Object):
   
     def PlayTurn(self):
         playerChoice = ""
-        do until playerChoice == "E":
+        finishTurn = False
+        do until playerChoice == "E" or finishTurn == True:
             do until playerChoice in ["S", "V", "VB", "VG, "VL", "A", "E"]:
                 playerChoice = input(currentPlayer + ", please select one of the following options. S = Summon, V = View hand, VB = View field, VG = View graveyard, VL = View lands, A - Attack, E - End turn")
             if playerChoice == "S":
@@ -40,10 +41,25 @@ class Game(Object):
                 currentPlayer.SeeLand()
             elif playerChoice == "A":
                 attacking = input("Please enter a card on the field to attack with.")
-                inField = False
-                if attacking in currentPlayer.field:
-                    inField = True
-                target = input("Please enter a card on the field to attack.")
+                if currentPlayer.OwnsCard(attacking) == field:
+                    target = input("Please enter a player to attack. (player1/player2)")
+                    if target in self.allPlayers and target != currentPlayer:
+                        if len(target.field) > 0:
+                            target.SeeField()
+                            blocker = input("Please enter which creature you want to block with (or enter N to take the damage).")
+                            if target.OwnsCard(blocker) == field and blocker.tapped != True and blocker != "N":
+                                attacking.Attack(blocker)
+                                finishTurn = True
+                            else:
+                                attacking.Attack(target)
+                                finishTurn = True
+                        else:
+                            attacking.Attack(target)
+                            finishTurn = True
+                    else:
+                        print("Target not found.")
+                else:
+                    print("You do not own that card, or it isn't in the field!")
 
 
 player1 = classPlayer.player()
