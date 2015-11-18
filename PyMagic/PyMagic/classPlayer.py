@@ -24,6 +24,14 @@ class player(object):
         self.hand.append(self.deck[(len(self.deck) - 1)])
         del self.deck[len(self.deck) - 1]
 
+    def OwnsCard(self, card):
+        for area in (hand, deck, field, grave, lands):
+            for item in area:
+                if item == card:
+                    return area
+
+        return False
+
     def CanSummon(self, target):
         if target in self.hand and target.cost <= self.mana:
             return True
