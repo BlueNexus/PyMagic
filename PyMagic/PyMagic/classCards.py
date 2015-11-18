@@ -8,6 +8,8 @@ class Card(object):
     
 class Monster(Card):
     sick = False
+    alive = False
+    tapped = False
     def __init__(self, name, cost, power, defence, ability):
         self.name = name
         self.cost = cost
@@ -26,6 +28,11 @@ class Monster(Card):
     def summoned(self):
         if self.ability != "Haste":
             self.sick = True
+        self.alive = True
+        self.tapped = False
+
+    def tap(self):
+        self.tapped = True
     
     def getLoc(self):
         loc = ""
@@ -36,6 +43,7 @@ class Monster(Card):
         return loc
     
     def Die(self):
+        self.alive = False
         currentPlayer.grave += self
         del currentPlayer.field[self]
         print(self.name + " has been destroyed!")
@@ -75,6 +83,8 @@ class Monster(Card):
             target.Hit(self, False)
             target.HealthCheck()
             self.HealthCheck()
+            
+        self.tap()
 
 
 allCards = []
