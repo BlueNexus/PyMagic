@@ -38,6 +38,7 @@ class CardGenerator(object):
             file.write(card)
             file.write("\n")
         print("CardGen: Saved ", len(deck), " cards.")
+        file.close()
 
     def InitNames(self):
         with open('CardGenerator\nameList.csv', 'rt') as csvfile:
