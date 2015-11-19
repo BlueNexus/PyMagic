@@ -1,5 +1,2 @@
-Name, Cost, Power, Defence, Ability, ID
-"Black_Boa", 2, 2, 1, "Assassin", "AA"
-"Hordeling_Nymph", 1, 1, 1, "Cowardly", "AB"
-"Hordeling_Trooper", 2, 2, 2, "None", "AC"
-"Hordeling_Axeling", 3, 3, 2, "Beserker", "AD"
+Name
+example_name
