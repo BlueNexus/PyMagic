@@ -86,31 +86,3 @@ class Monster(Card):
             
         self.tap()
 
-
-allCards = []
-with open('Cards\monsterList.csv', 'rt') as csvfile:
-    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-    for row in spamreader:
-        cache = 0
-        IDname = ""
-        name = ""
-        cost = 0
-        power = 0
-        defence = 0
-        ability = 0
-        for word in row:
-            if cache == 0:
-                name = word
-            elif cache == 1:
-                cost = word
-            elif cache == 2:
-                power = word
-            elif cache == 3:
-                defence = word
-            elif cache == 4:
-                ability = word
-            elif cache == 5:
-                IDname = word
-            cache += 1
-        IDname = Monster(name, cost, power, defence, ability)
-        allCards.append(IDname)
