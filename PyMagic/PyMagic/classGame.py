@@ -23,8 +23,8 @@ class Game(Object):
     def PlayTurn(self):
         playerChoice = ""
         finishTurn = False
-        do until playerChoice == "E" or finishTurn == True:
-            do until playerChoice in ["S", "V", "VB", "VG, "VL", "A", "E"]:
+        while not playerChoice == "E" or finishTurn == True:
+            while playerChoice in ["S", "V", "VB", "VG, "VL", "A", "E"]:
                 playerChoice = input(currentPlayer + ", please select one of the following options. S = Summon, V = View hand, VB = View field, VG = View graveyard, VL = View lands, A - Attack, E - End turn")
             if playerChoice == "S":
                 cardChoice = input("Please enter the creature you wish to summon.")
