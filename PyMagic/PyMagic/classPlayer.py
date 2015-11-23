@@ -14,7 +14,10 @@ class player(object):
         self.health = 20
         for i in range(1, 8):
             self.draw()
-    
+
+    def IsPlayer(self):
+        return True
+
     def InitDeck(self):
         for i in range(1, 61):
             self.deck.append(classCards.allCards[random.randrange(len(classCards.allCards))])
