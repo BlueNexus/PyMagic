@@ -18,6 +18,14 @@ class player(object):
     def IsPlayer(self):
         return True
 
+    def HealthCheck(self):
+        if self.health < 1:
+            self.Lose()
+
+    def Lose(self):
+        print(self + " has lost the game!")
+        exit()
+
     def InitDeck(self):
         for i in range(1, 61):
             self.deck.append(classCards.allCards[random.randrange(len(classCards.allCards))])
