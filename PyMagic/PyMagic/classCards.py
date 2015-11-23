@@ -18,6 +18,7 @@ class Creature(Card):
         self.defence = defence
         self.health = defence
         self.ability = ability
+        self.InitCards()
 
     def InitCards(self):
         with open('CardGenerator\cardList.csv', 'rb') as csvfile:
