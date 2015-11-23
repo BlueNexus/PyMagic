@@ -1,12 +1,13 @@
-﻿import csv
+import csv
 import PyMagic
 
 class Card(object):
+    allCards = []
     def __init__(self, name, cost):
         self.name = name
         self.cost = cost
     
-class Monster(Card):
+class Creature(Card):
     sick = False
     alive = False
     tapped = False
@@ -17,6 +18,34 @@ class Monster(Card):
         self.defence = defence
         self.health = defence
         self.ability = ability
+
+    def InitCards(self):
+        with open('CardGenerator\cardList.csv', 'rb') as csvfile:
+            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+            for row in spamreader:
+                cache = 0
+                IDname = ""
+                name = ""
+                cost = 0
+                power = 0
+                defence = 0
+                ability = 0
+                for word in row:
+                    if cache == 0:
+                        name = word
+                    elif cache == 1:
+                        cost = word
+                    elif cache == 2:
+                        power = word
+                    elif cache == 3:
+                        defence = word
+                    elif cache == 4:
+                        ability = word
+                    elif cache == 5:
+                        IDname = word
+                    cache += 1
+                IDname = Monster(name, cost, power, defence, ability)
+                allCards.append(IDname)
 
     def __repr__(self):
         return "Monster: " + self.name + " H: " + self.health + " C: " + self.cost + " P: " + self.power + " D: " + self.defence + " A: " + self.ability
