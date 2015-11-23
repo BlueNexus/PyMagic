@@ -90,7 +90,10 @@ class Creature(Card):
         if self.sick == True:
             print(self , " has summoning sickness!.")
             return
-    
+
+        if target.IsPlayer():
+            self.Hit(target, Fast)
+
         if self.ability == "First Strike" and target.ability != "First Strike":
             self.Hit(target, True)
             target.Hit(self, False)
