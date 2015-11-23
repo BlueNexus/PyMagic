@@ -4,4 +4,4 @@ A simple card game loosely based on the Magic: the Gathering TCG, written in Pyt
 
 
 ## Adding premade cards
-Refer to cardReadme.md
+Refer to cardReadme.md in the Docs folder.
