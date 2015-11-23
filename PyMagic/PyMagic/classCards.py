@@ -1,5 +1,7 @@
 import csv
 import PyMagic
+import classPlayer
+import classGame
 
 class Card(object):
     allCards = []
@@ -93,14 +95,14 @@ class Creature(Card):
             self.Hit(target, True)
             target.Hit(self, False)
             self.HealthCheck()
-      
+
         elif self.ability == "Double Strike" and target.ability != "Double Strike":
             self.Hit(target, True)
             self.Hit(target, False)
             target.Hit(self, False)
             target.HealthCheck()
             self.HealthCheck()
-      
+
         elif self.ability == "Leech":
             self.Hit(target, False)
             self.health += self.power
@@ -108,11 +110,29 @@ class Creature(Card):
             target.HealthCheck()
             self.HealthCheck()
 
+        elif self.ability == "Ranged":
+            self.Hit(target, True)
+
+        elif self.ability == "Cleave":
+            target.Hit(self)
+            for player in (classPlayer.player1, classPlayer.player2):
+                if player.OwnsCard(target):
+                    for card in player.field:
+                        self.Hit(card, False)
+                        card.HealthCheck()
+            self.HealthCheck()
+
+        elif self.ability == "Assassin":
+            self.Hit(target, False)
+            target.Hit(self, False)
+            self.HealthCheck()
+            target.Die()
+
         else:
             self.Hit(target, False)
             target.Hit(self, False)
             target.HealthCheck()
             self.HealthCheck()
-            
+
         self.tap()
 
