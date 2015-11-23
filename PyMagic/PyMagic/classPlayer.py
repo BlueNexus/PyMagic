@@ -29,7 +29,6 @@ class player(object):
     def InitDeck(self):
         for i in range(1, 61):
             self.deck.append(classCards.allCards[random.randrange(len(classCards.allCards))])
-                
 
     def draw(self):
         self.hand.append(self.deck[(len(self.deck) - 1)])
