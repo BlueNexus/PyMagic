@@ -19,6 +19,10 @@ class Game(Object):
         else:
             currentPlayer = self.player1
             player1.startTurn()
+            self.AddTurn()
+
+    def AddTurn(self):
+        self.turn += 1
   
     def PlayTurn(self):
         playerChoice = ""
@@ -60,6 +64,7 @@ class Game(Object):
                         print("Target not found.")
                 else:
                     print("You do not own that card, or it isn't in the field!")
+        self.SwitchTurn()
 
 
 player1 = classPlayer.player()
