@@ -1,12 +1,12 @@
 # Committing Cards
-In order to commit new cards, make a fork of this repository, and add the new cards on seperate lines in the monsterList.csv
-file. Monsters follow this format:
+In order to commit new cards, make a fork of this repository, and add the new cards on seperate lines in the premadeList.csv
+file. Creatures follow this format:
 
-"Name", cost, power, defence, "ability", unique id (starts from AA, then AB, then AC... AZ, then BA, BB, BC, et cetera)
+"Name", cost, power, defence, "ability", unique id (1, 2, 3, 4, 5, etc)
 
 So an example monster would be 
 
-"Black_Boa", 2, 2, 1, "First Strike", AA
+"Black_Boa", 2, 2, 1, "First Strike", 1
 
 following the format:
     Name     C  P  D     Ability      I
@@ -28,3 +28,5 @@ These will be located on the wiki at some point, but i'll list them here for now
 11. "Sentinel" - This creature will automatically block, regardless of whether or not it is tapped.
 12. "Beserker" - This creature gains +1/+1 when attacking, and -1/-1 when defending.
 More will be added with time.
+
+You are free to add new creatures at any time.
