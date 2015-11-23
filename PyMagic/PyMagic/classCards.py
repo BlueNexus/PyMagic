@@ -8,7 +8,7 @@ class Card(object):
     def __init__(self, name, cost):
         self.name = name
         self.cost = cost
-    
+
 class Creature(Card):
     sick = False
     alive = False
