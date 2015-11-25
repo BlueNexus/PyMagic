@@ -1,5 +1,5 @@
 import classPlayer
-import classCard
+import classCards
 import PyMagic
 
 class Game(Object):
@@ -45,13 +45,13 @@ class Game(Object):
                 currentPlayer.SeeLand()
             elif playerChoice == "A":
                 attacking = input("Please enter a card on the field to attack with.")
-                if currentPlayer.OwnsCard(attacking) == field:
+                if attacking in currentPlayer.field:
                     target = input("Please enter a player to attack. (player1/player2)")
-                    if target in self.allPlayers and target != currentPlayer:
+                    if target is classPlayer.Player and target != currentPlayer:
                         if len(target.field) > 0:
                             target.SeeField()
                             blocker = input("Please enter which creature you want to block with (or enter N to take the damage).")
-                            if target.OwnsCard(blocker) == field and blocker.tapped != True and blocker != "N":
+                            if blocker in target.field and blocker.tapped != True and blocker != "N" and blocker is classCards.Creature:
                                 attacking.Attack(blocker)
                                 finishTurn = True
                             else:
@@ -70,5 +70,4 @@ class Game(Object):
 player1 = classPlayer.player()
 player2 = classPlayer.player()
 newGame = Game(player1, player2)
-            
     
