@@ -28,7 +28,7 @@ class CardGenerator(object):
             workCost = int(((workPower + workDefence) / self.balancer) +
                            (workAbility.cost / self.balancer))
             workID = core.cCards.Creature(workname, workCost, workPower,
-                                          workDefence, workAbility, workID)
+                                          workDefence, workAbility)
             workDeck.append(workID)
         print("Card generation complete. /n Saving card list...")
         self.Save(workDeck)
