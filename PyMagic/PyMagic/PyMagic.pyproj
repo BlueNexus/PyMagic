@@ -5,13 +5,16 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>e3f600c0-e343-426a-adf8-5556d1268639</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>cGame.py</StartupFile>
+    <StartupFile>core.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>PyMagic</Name>
     <RootNamespace>PyMagic</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
+    <InterpreterVersion>3.4</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,9 +29,13 @@
     <Compile Include="cAbility.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="cCards.py" />
+    <Compile Include="cCards.py">
+      <Publish>True</Publish>
+    </Compile>
     <Compile Include="cGame.py" />
-    <Compile Include="cPlayer.py" />
+    <Compile Include="cPlayer.py">
+      <Publish>True</Publish>
+    </Compile>
     <Compile Include="core.py">
       <SubType>Code</SubType>
     </Compile>
@@ -37,10 +44,21 @@
     <Folder Include="CardGenerator\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CardGenerator\abilityList.csv" />
-    <Content Include="CardGenerator\cardList.csv" />
-    <Content Include="CardGenerator\nameList.csv" />
-    <Content Include="CardGenerator\premadeList.csv" />
+    <Content Include="CardGenerator\abilityList.csv">
+      <Publish>True</Publish>
+    </Content>
+    <Content Include="CardGenerator\cardList.csv">
+      <Publish>True</Publish>
+    </Content>
+    <Content Include="CardGenerator\nameList.csv">
+      <Publish>True</Publish>
+    </Content>
+    <Content Include="CardGenerator\premadeList.csv">
+      <Publish>True</Publish>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\3.4" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -47,11 +47,11 @@ class Game(object):
                 attacking = input("Please enter a card on the field to attack with.")
                 if attacking in currentPlayer.field:
                     target = input("Please enter a player to attack. (player1/player2)")
-                    if target is classPlayer.Player and target != currentPlayer:
+                    if target is cPlayer.Player and target != currentPlayer:
                         if len(target.field) > 0:
                             target.SeeField()
                             blocker = input("Please enter which creature you want to block with (or enter N to take the damage).")
-                            if blocker in target.field and blocker.tapped != True and blocker != "N" and blocker is classCards.Creature:
+                            if blocker in target.field and blocker.tapped != True and blocker != "N" and blocker is cCards.Creature:
                                 attacking.Attack(blocker)
                                 finishTurn = True
                             else:
