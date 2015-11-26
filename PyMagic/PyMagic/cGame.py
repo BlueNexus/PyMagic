@@ -13,11 +13,11 @@ class Game(object):
         self.turn = 1
     
     def SwitchTurn(self):
-        if currentPlayer == self.player1:
-            currentPlayer = self.player2
+        if self.currentPlayer == self.player1:
+            self.currentPlayer = self.player2
             player2.startTurn()
         else:
-            currentPlayer = self.player1
+            self.currentPlayer = self.player1
             player1.startTurn()
             self.AddTurn()
 

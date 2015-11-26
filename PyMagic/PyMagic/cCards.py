@@ -1,7 +1,7 @@
 ﻿import cPlayer
 import cGame
 import cAbility
-import main
+import core
 
 class Card(object):
     '''All card-type objects in the game'''

@@ -29,7 +29,7 @@
     <Compile Include="cCards.py" />
     <Compile Include="cGame.py" />
     <Compile Include="cPlayer.py" />
-    <Compile Include="Main.py">
+    <Compile Include="core.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
