@@ -1,9 +1,11 @@
-import cAbility
-import cCards
-import cGame
-import cPlayer
-import cCardGenerator
-import csv
+
+if __name__ == '__main__':
+    import cAbility
+    import cCards
+    import cGame
+    import cPlayer
+    import cCardGenerator
+    import csv
 
 allCards = []
 def InitCards():
@@ -35,15 +37,16 @@ def InitCards():
                 cardName = cCards.Creature(name, cost, power, defence, ability)
                 allCards.append(cardName)
 
-playerChoice = input("Would you like to run the card generator? (yes/no)").lower
-if playerChoice == "yes":
-    maxPower = int("Please enter a maximum card power.")
-    maxDefence = int("Please enter a maximum card defence.")
-    balancer = int("Please enter a value for the balancer. Recommended: 2 (!Advanced!)")
-    cardCount = int("Please enter the number of cards you wish to generate")
-    cardGen = cCardGenerator.CardGenerator(maxPower, maxDefence, balancer, cardCount)
-InitCards()
+if __name__ == '__main__':
+    playerChoice = input("Would you like to run the card generator? (yes/no)").lower
+    if playerChoice == "yes":
+        maxPower = int("Please enter a maximum card power.")
+        maxDefence = int("Please enter a maximum card defence.")
+        balancer = int("Please enter a value for the balancer. Recommended: 2 (!Advanced!)")
+        cardCount = int("Please enter the number of cards you wish to generate")
+        cardGen = cCardGenerator.CardGenerator(maxPower, maxDefence, balancer, cardCount)
+    InitCards()
 
-player1 = cPlayer.Player()
-player2 = cPlayer.Player()
-newGame = cGame.Game(player1, player2)
+    player1 = cPlayer.Player()
+    player2 = cPlayer.Player()
+    newGame = cGame.Game(player1, player2)
