@@ -1,10 +1,12 @@
 ﻿import core
 import random
 
+
 class CardGenerator(object):
     '''Generates creature-type card objects'''
     nameList = []
     abilityList = []
+
     def __init__(self, maxPower, maxDefence, balancer, cardCount):
         self.InitNames()
         self.InitAbilities()
@@ -23,8 +25,11 @@ class CardGenerator(object):
             workPower = randint(1, self.maxPower)
             workDefence = randint(1, self.maxDefence)
             workID = randint(1, (self.cardCount * 100))
-            workCost = int(((workPower + workDefence) / self.balancer) + (workAbility.cost / self.balancer))
-            workDeck.append(workID = core.cCards.Creature(workname, workCost, workPower, workDefence, workAbility, workID))
+            workCost = int(((workPower + workDefence) / self.balancer) +
+                           (workAbility.cost / self.balancer))
+            workID = core.cCards.Creature(workname, workCost, workPower,
+                                          workDefence, workAbility, workID)
+            workDeck.append(workID)
         print("Card generation complete. /n Saving card list...")
         self.Save(workDeck)
 
@@ -58,5 +63,6 @@ class CardGenerator(object):
                         cache += 1
                     elif cache == 1:
                         cost = word
-                abilityList.append(name = core.cAbility.Ability(name, cost))
+                name = core.cAbility.Ability(name, cost)
+                abilityList.append(name)
         print("Abilitylist initialised.")

@@ -1,13 +1,7 @@
+import cCards
+import csv
 
-if __name__ == '__main__':
-    import cAbility
-    import cCards
-    import cGame
-    import cPlayer
-    import cCardGenerator
-    import csv
 
-allCards = []
 def InitCards():
         with open('CardGenerator\cardList.csv', 'r+') as csvfile:
             spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
@@ -35,18 +29,31 @@ def InitCards():
                     cache += 1
                 cardName = IDname
                 cardName = cCards.Creature(name, cost, power, defence, ability)
+                global allCards
+                allCards = []
                 allCards.append(cardName)
 
+allCards = []
+
 if __name__ == '__main__':
-    playerChoice = input("Would you like to run the card generator? (yes/no)").lower
+    import cAbility
+    import cGame
+    import cCardGenerator
+
+    playerChoice = input("Would you like to run the card generator? \
+                    (yes/no)").lower
     if playerChoice == "yes":
         maxPower = int("Please enter a maximum card power.")
         maxDefence = int("Please enter a maximum card defence.")
-        balancer = int("Please enter a value for the balancer. Recommended: 2 (!Advanced!)")
-        cardCount = int("Please enter the number of cards you wish to generate")
-        cardGen = cCardGenerator.CardGenerator(maxPower, maxDefence, balancer, cardCount)
+        balancer = int("Please enter a value for the balancer. \
+                        Recommended: 2 (!Advanced!)")
+        cardCount = int("Please enter the number of cards you \
+                        wish to generate")
+        cardGen = cCardGenerator.CardGenerator(maxPower, maxDefence,
+                                               balancer, cardCount)
     InitCards()
 
+    import cPlayer
     player1 = cPlayer.Player()
     player2 = cPlayer.Player()
     newGame = cGame.Game(player1, player2)

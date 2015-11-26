@@ -1,16 +1,18 @@
 ﻿import core
 
+
 class Game(object):
     '''Manages game actions such as taking turns'''
     turn = 0
     currentPlayer = ""
+
     def __init__(self, player1, player2):
         self.player1 = player1
         self.player2 = player2
         self.allPlayers = [player1, player2]
         self.currentPlayer = player1
         self.turn = 1
-    
+
     def SwitchTurn(self):
         if self.currentPlayer == self.player1:
             self.currentPlayer = self.player2
@@ -22,7 +24,7 @@ class Game(object):
 
     def AddTurn(self):
         self.turn += 1
-  
+
     def PlayTurn(self):
         playerChoice = ""
         finishTurn = False
@@ -64,4 +66,3 @@ class Game(object):
                 else:
                     print("You do not own that card, or it isn't in the field!")
         self.SwitchTurn()
-    
