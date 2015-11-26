@@ -1,7 +1,8 @@
-import classCards
+﻿import cCards
 import random
 
 class player(object):
+    '''An actual player in the game'''
     hand = []
     deck = []
     field = []

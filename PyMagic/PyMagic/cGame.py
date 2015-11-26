@@ -1,8 +1,8 @@
-import classPlayer
-import classCards
-import PyMagic
+﻿import cPlayer
+import cCards
 
-class Game(Object):
+class Game(object):
+    '''Manages game actions such as taking turns'''
     turn = 0
     currentPlayer = ""
     def __init__(self, player1, player2):
@@ -28,7 +28,7 @@ class Game(Object):
         playerChoice = ""
         finishTurn = False
         while not playerChoice == "E" or finishTurn == True:
-            while playerChoice in ["S", "V", "VB", "VG, "VL", "A", "E"]:
+            while not playerChoice in ["S", "V", "VB", "VG", "VL", "A", "E"]:
                 playerChoice = input(currentPlayer + ", please select one of the following options. S = Summon, V = View hand, VB = View field, VG = View graveyard, VL = View lands, A - Attack, E - End turn")
             if playerChoice == "S":
                 cardChoice = input("Please enter the creature you wish to summon.")
@@ -65,9 +65,4 @@ class Game(Object):
                 else:
                     print("You do not own that card, or it isn't in the field!")
         self.SwitchTurn()
-
-
-player1 = classPlayer.player()
-player2 = classPlayer.player()
-newGame = Game(player1, player2)
     

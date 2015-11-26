@@ -1,15 +1,16 @@
-import csv
-import PyMagic
-import classPlayer
-import classGame
+﻿import cPlayer
+import cGame
+import cAbility
+import main
 
 class Card(object):
-    allCards = []
+    '''All card-type objects in the game'''
     def __init__(self, name, cost):
         self.name = name
         self.cost = cost
 
 class Creature(Card):
+    '''A creature-type card with health, power, abilites, etc'''
     sick = False
     alive = False
     tapped = False
@@ -20,38 +21,9 @@ class Creature(Card):
         self.defence = defence
         self.health = defence
         self.ability = ability
-        self.InitCards()
-
-    def InitCards(self):
-        with open('CardGenerator\cardList.csv', 'rb') as csvfile:
-            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-            for row in spamreader:
-                cache = 0
-                IDname = ""
-                name = ""
-                cost = 0
-                power = 0
-                defence = 0
-                ability = 0
-                for word in row:
-                    if cache == 0:
-                        name = word
-                    elif cache == 1:
-                        cost = word
-                    elif cache == 2:
-                        power = word
-                    elif cache == 3:
-                        defence = word
-                    elif cache == 4:
-                        ability = word
-                    elif cache == 5:
-                        IDname = word
-                    cache += 1
-                IDname = Monster(name, cost, power, defence, ability)
-                allCards.append(IDname)
 
     def __repr__(self):
-        return "Monster: " + self.name + " H: " + self.health + " C: " + self.cost + " P: " + self.power + " D: " + self.defence + " A: " + self.ability
+        return "Monster: %s H: %s C: %s P: %s D: %s A: %s" % (self.name, self.health, self.cost, self.power, self.defence, self.ability)
     
     def HealthCheck(self):
         if self.health < 1:
@@ -68,7 +40,7 @@ class Creature(Card):
     
     def getLoc(self):
         loc = ""
-        for p in [player1, player2]:
+        for p in [main.player1, main.player2]:
             for i in [field, hand, deck]:
                 if self in p.i:
                     loc = p.i
@@ -118,7 +90,7 @@ class Creature(Card):
 
         elif self.ability == "Cleave":
             target.Hit(self)
-            for player in (classPlayer.player1, classPlayer.player2):
+            for player in (player1, player2):
                 if player.OwnsCard(target):
                     for card in player.field:
                         self.Hit(card, False)
@@ -134,8 +106,7 @@ class Creature(Card):
         else:
             self.Hit(target, False)
             target.Hit(self, False)
-            target.HealthCheck()
             self.HealthCheck()
-
+            target.HealthCheck()
         self.tap()
 

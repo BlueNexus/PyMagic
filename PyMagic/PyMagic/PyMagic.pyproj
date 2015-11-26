@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>e3f600c0-e343-426a-adf8-5556d1268639</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PyMagic.py</StartupFile>
+    <StartupFile>cGame.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,16 +22,25 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="classCards.py" />
-    <Compile Include="classPlayer.py" />
-    <Compile Include="PyMagic.py" />
+    <Compile Include="cCardGenerator.py" />
+    <Compile Include="cAbility.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="cCards.py" />
+    <Compile Include="cGame.py" />
+    <Compile Include="cPlayer.py" />
+    <Compile Include="Main.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Cards\" />
+    <Folder Include="CardGenerator\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Cards\cardReadme.md" />
-    <Content Include="Cards\monsterList.csv" />
+    <Content Include="CardGenerator\abilityList.csv" />
+    <Content Include="CardGenerator\cardList.csv" />
+    <Content Include="CardGenerator\nameList.csv" />
+    <Content Include="CardGenerator\premadeList.csv" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
