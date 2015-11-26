@@ -1,7 +1,4 @@
-﻿import cPlayer
-import cGame
-import cAbility
-import core
+﻿import core
 
 class Creature(object):
     '''A creature-type card with health, power, abilites, etc'''

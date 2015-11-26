@@ -1,5 +1,4 @@
-﻿import cCards
-import random
+﻿import random
 import core
 
 class Player(object):

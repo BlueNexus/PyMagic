@@ -1,5 +1,4 @@
-﻿import cAbility
-import cCards
+﻿import core
 import random
 
 class CardGenerator(object):
@@ -25,7 +24,7 @@ class CardGenerator(object):
             workDefence = randint(1, self.maxDefence)
             workID = randint(1, (self.cardCount * 100))
             workCost = int(((workPower + workDefence) / self.balancer) + (workAbility.cost / self.balancer))
-            workDeck.append(workID = cCards.Creature(workname, workCost, workPower, workDefence, workAbility, workID))
+            workDeck.append(workID = core.cCards.Creature(workname, workCost, workPower, workDefence, workAbility, workID))
         print("Card generation complete. /n Saving card list...")
         self.Save(workDeck)
 
@@ -59,5 +58,5 @@ class CardGenerator(object):
                         cache += 1
                     elif cache == 1:
                         cost = word
-                abilityList.append(name = cAbility.Ability(name, cost))
+                abilityList.append(name = core.cAbility.Ability(name, cost))
         print("Abilitylist initialised.")
