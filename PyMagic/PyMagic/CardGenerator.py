@@ -16,25 +16,25 @@ class CardGenerator(object):
 
     def Generate(self):
         workDeck = []
+        print "Starting card generation..."
         for i in self.cardCount:
             workName = self.nameList[randint(len(self.nameList))]
             workAbility = self.abilityList[randint(len(self.abilityList))]
-            workPower = randint(self.maxPower)
-            workDefence = randint(self.maxDefence)
-            workID = randint(self.cardCount * 100)
+            workPower = randint(1, self.maxPower)
+            workDefence = randint(1, self.maxDefence)
+            workID = randint(1, (self.cardCount * 100))
             workCost = int(((workPower + workDefence) / self.balancer) + (workAbility.cost / self.balancer))
-            workID = Creature(workname, workCost, workPower, workDefence, workAbility, workID)
-            workDeck.append(workID)
+            workDeck.append(workID = Creature(workname, workCost, workPower, workDefence, workAbility, workID))
+        print "Card generation complete. /n Saving card list..."
         self.Save(workDeck)
 
     def Save(self, deck):
-        file = open('CardGenerator\cardList.csv', 'a')
-        for card in deck:
-            file.write(card)
-            file.write("\n")
-        file.close()
+        with open('CardGenerator\cardList.csv', 'a') as file:
+            for card in deck:
+                file.write(card + "\n")
 
     def InitNames(self):
+        print "Initialising namelist..."
         with open('CardGenerator\nameList.csv', 'rt') as csvfile:
             spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
             for row in spamreader:
@@ -42,8 +42,10 @@ class CardGenerator(object):
                 for word in row:
                     name = word
                 self.nameList.append(name)
+        print "Namelist initialised."
 
     def InitAbilities(self):
+        print "Initialising abilitylist..."
         with open('CardGenerator\abilityList.csv', 'rt') as csvfile:
             spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
             for row in spamreader:
@@ -56,5 +58,5 @@ class CardGenerator(object):
                         cache += 1
                     elif cache == 1:
                         cost = word
-                name = Ability(name, cost)
-                abilityList.append(name)
+                abilityList.append(name = Ability(name, cost))
+        print "Abilitylist initialised."
