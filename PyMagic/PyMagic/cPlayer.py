@@ -1,7 +1,8 @@
 ﻿import cCards
 import random
+import core
 
-class player(object):
+class Player(object):
     '''An actual player in the game'''
     hand = []
     deck = []
@@ -29,7 +30,7 @@ class player(object):
 
     def InitDeck(self):
         for i in range(1, 61):
-            self.deck.append(classCards.allCards[random.randrange(len(classCards.allCards))])
+            self.deck.append(core.allCards[random.randrange(len(core.allCards))])
 
     def draw(self):
         self.hand.append(self.deck[(len(self.deck) - 1)])

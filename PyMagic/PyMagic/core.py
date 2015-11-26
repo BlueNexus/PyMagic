@@ -42,7 +42,8 @@ if playerChoice == "yes":
     balancer = int("Please enter a value for the balancer. Recommended: 2 (!Advanced!)")
     cardCount = int("Please enter the number of cards you wish to generate")
     cardGen = cCardGenerator.CardGenerator(maxPower, maxDefence, balancer, cardCount)
+InitCards()
 
-player1 = cPlayer.player()
-player2 = cPlayer.player()
+player1 = cPlayer.Player()
+player2 = cPlayer.Player()
 newGame = cGame.Game(player1, player2)

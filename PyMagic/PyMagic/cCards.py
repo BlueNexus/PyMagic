@@ -3,13 +3,7 @@ import cGame
 import cAbility
 import core
 
-class Card(object):
-    '''All card-type objects in the game'''
-    def __init__(self, name, cost):
-        self.name = name
-        self.cost = cost
-
-class Creature(Card):
+class Creature(object):
     '''A creature-type card with health, power, abilites, etc'''
     sick = False
     alive = False
@@ -23,7 +17,7 @@ class Creature(Card):
         self.ability = ability
 
     def __repr__(self):
-        return "Monster: %s H: %s C: %s P: %s D: %s A: %s" % (self.name, self.health, self.cost, self.power, self.defence, self.ability)
+        return("Monster: %s H: %s C: %s P: %s D: %s A: %s" % (self.name, self.health, self.cost, self.power, self.defence, self.ability))
     
     def HealthCheck(self):
         if self.health < 1:
@@ -40,7 +34,7 @@ class Creature(Card):
     
     def getLoc(self):
         loc = ""
-        for p in [main.player1, main.player2]:
+        for p in [core.player1, core.player2]:
             for i in [field, hand, deck]:
                 if self in p.i:
                     loc = p.i
