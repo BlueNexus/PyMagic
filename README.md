@@ -3,11 +3,11 @@
 A simple card game loosely based on the Magic: the Gathering TCG, written in Python.
 Python version: 3.4
 
-# Downloading the code
+## Downloading the code
 In order to download and play a released version of PyMagic, navigate to the "Releases" section of this repository and download the latest version. If you intend to play the game, do not just clone the repository to your local machine, as the compiled game will only be located in the releases section.
 
-# Contributing to this repository
+## Contributing to this repository
 You are welcome and encouraged to commit to this repository, or the wiki. You may edit any section of this repository, except for the license, which will automatically refuse pushes.
 
-# Playing the game
+## Playing the game
 This section will be completed once the game is in a working state.
