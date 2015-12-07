@@ -1,0 +1,1 @@
+Move away from a sln framework and use the standard python method instead 
