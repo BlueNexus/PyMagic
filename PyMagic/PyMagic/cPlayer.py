@@ -1,5 +1,6 @@
-﻿import random
-import core
+import random
+from core import allcards
+
 
 class Player(object):
     '''An actual player in the game'''
@@ -29,7 +30,7 @@ class Player(object):
 
     def InitDeck(self):
         for i in range(1, 61):
-            self.deck.append(core.allCards[random.randrange(len(core.allCards))])
+            self.deck.append(allCards[random.randrange(len(allCards))])
 
     def draw(self):
         self.hand.append(self.deck[(len(self.deck) - 1)])
@@ -77,8 +78,9 @@ class Player(object):
             self.draw()
         for i in self.lands:
             self.mana += i.mana
+        for c in self.field:
+            c.untap()
   
     def EndTurn(self):
         for m in self.field:
             m.health = m.defence
-            m.untap()
