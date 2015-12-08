@@ -6,9 +6,7 @@ if __name__ == '__main__':
     import cPlayer
     import cCardGenerator
 
-global allCards
 allCards = []
-
 
 def InitCards():
         with open('CardGenerator\cardList.csv', 'r+') as csvfile:
@@ -37,6 +35,7 @@ def InitCards():
                     cache += 1
                 cardName = IDname
                 cardName = cCards.Creature(name, cost, power, defence, ability)
+                global allCards
                 allCards.append(cardName)
 
 playerChoice = input("Would you like to run the card generator? \
